@@ -31,6 +31,7 @@ const Avatar: React.FC<AvatarProps> = ({ userId, isLarge, hasBorder }) => {
             hover:opacity-90
             transition
             cursor-pointer
+            border-black
             relative
         `}
       >
