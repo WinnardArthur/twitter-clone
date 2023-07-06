@@ -10,30 +10,27 @@ import { useRouter } from "next/router";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
 
-const items = [
-  {
-    label: "Home",
-    href: "/",
-    icon: BsFillHouseFill,
-  },
-  {
-    label: "Notifications",
-    href: "/notifications",
-    icon: BsFillBellFill,
-    auth: true,
-  },
-  {
-    label: "Profile",
-    href: "/users/123",
-    icon: FaUser,
-    auth: true,
-  },
-];
-
 const Sidebar = () => {
   const { data: currentUser } = useCurrentUser();
-  const router = useRouter();
-
+  const items = [
+    {
+      label: "Home",
+      href: "/",
+      icon: BsFillHouseFill,
+    },
+    {
+      label: "Notifications",
+      href: "/notifications",
+      icon: BsFillBellFill,
+      auth: true,
+    },
+    {
+      label: "Profile",
+      href: `/users/${currentUser?.id}`,
+      icon: FaUser,
+      auth: true,
+    },
+  ];
   return (
     <div className="col-span-1 h-full pr-4 md:pr-6">
       <div className="flex flex-col items-end">
