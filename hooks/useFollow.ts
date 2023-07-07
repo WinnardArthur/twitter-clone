@@ -24,11 +24,12 @@ const useFollow = (userId: string) => {
 
     try {
       let request;
+      let url = `/api/follow/${userId}`;
 
       if (isFollowing) {
-        request = () => axios.delete(`/api/follow/${userId}`);
+        request = () => axios.delete(url);
       } else {
-        request = () => axios.patch(`/api/follow/${userId}`);
+        request = () => axios.patch(url);
       }
 
       await request();
