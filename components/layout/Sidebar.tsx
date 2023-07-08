@@ -6,7 +6,6 @@ import SidebarLogo from "./SidebarLogo";
 import SidebarItem from "./SidebarItem";
 import { BiLogOut } from "react-icons/bi";
 import SidebarTweetButton from "./SidebarTweetButton";
-import { useRouter } from "next/router";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
 
@@ -23,6 +22,7 @@ const Sidebar = () => {
       href: "/notifications",
       icon: BsFillBellFill,
       auth: true,
+      alert: currentUser?.hasNotification,
     },
     {
       label: "Profile",
@@ -43,6 +43,7 @@ const Sidebar = () => {
               label={item.label}
               icon={item.icon}
               auth={item.auth}
+              alert={item.alert}
             />
           ))}
           {currentUser && (
