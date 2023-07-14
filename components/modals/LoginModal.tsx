@@ -48,7 +48,13 @@ const LoginModal = () => {
       setIsLoading(false);
       setUseGuestCredentials(false);
     }
-  }, [loginModal, email, password]);
+  }, [
+    loginModal,
+    email,
+    password,
+    GUEST_USER_EMAIL,
+    GUEST_USER_PASSWORD,
+  ]);
 
   useEffect(() => {
     if (useGuestCredentials) {

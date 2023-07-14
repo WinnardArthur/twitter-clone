@@ -22,7 +22,7 @@ const SidebarTweetButton: React.FC<SidebarTweetButtonProps> = ({ auth }) => {
       router.push("/");
       globalState.onFocus();
     }
-  }, [router, loginModal, currentUser, globalState]);
+  }, [router, loginModal, currentUser, globalState, auth]);
 
   return (
     <div onClick={onClick}>
