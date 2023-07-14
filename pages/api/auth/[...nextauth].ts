@@ -25,9 +25,6 @@ export const authOptions: AuthOptions = {
           throw new Error("Email and password required");
         }
 
-        console.log("email", credentials?.email);
-        console.log("password", credentials.password);
-
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email,

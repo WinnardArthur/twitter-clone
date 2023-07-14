@@ -26,8 +26,6 @@ const LoginModal = () => {
   }, [isLoading, registerModal, loginModal]);
 
   const onSubmit = useCallback(async () => {
-    console.log("is it Running???");
-    console.log("email", email, "password", password);
     try {
       setIsLoading(true);
       if (email !== GUEST_USER_EMAIL && password !== GUEST_USER_PASSWORD) {
@@ -43,7 +41,6 @@ const LoginModal = () => {
       loginModal.onClose();
     } catch (error) {
       toast.error("Something went wrong");
-      console.log(error);
     } finally {
       setIsLoading(false);
       setUseGuestCredentials(false);
@@ -88,9 +85,6 @@ const LoginModal = () => {
         disabled={isLoading}
         secondary
         onClick={() => {
-          // console.log("email", process.env.GUEST_USER_EMAIL);
-          // setEmail(process.env.GUEST_USER_EMAIL as string);
-          // setPassword(process.env.GUEST_USER_PASSWORD as string);
           setEmail(GUEST_USER_EMAIL);
           setPassword(GUEST_USER_PASSWORD);
           setUseGuestCredentials(true);

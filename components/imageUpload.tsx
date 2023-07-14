@@ -28,7 +28,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   const handleDrop = useCallback(
     (files: any) => {
       const file = files[0];
-      console.log("file", file);
 
       if (file.size >= 5242880) {
         return toast.error("File should be less that 5MB");
