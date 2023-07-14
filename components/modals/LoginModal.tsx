@@ -16,7 +16,8 @@ const LoginModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const GUEST_USER_EMAIL = process.env.NEXT_PUBLIC_GUEST_USER_EMAIL as string;
-  const GUEST_USER_PASSWORD = process.env.NEXT_PUBLIC_GUEST_USER_PASSWORD as string;
+  const GUEST_USER_PASSWORD = process.env
+    .NEXT_PUBLIC_GUEST_USER_PASSWORD as string;
 
   const onToggle = useCallback(() => {
     if (isLoading) return;
@@ -28,8 +29,10 @@ const LoginModal = () => {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      if (email !== GUEST_USER_EMAIL && password !== GUEST_USER_PASSWORD) {
-        return toast.error("Invalid Guest user credentials");
+      if (useGuestCredentials) {
+        if (email !== GUEST_USER_EMAIL && password !== GUEST_USER_PASSWORD) {
+          return toast.error("Invalid Guest user credentials");
+        }
       }
 
       await signIn("credentials", {
@@ -45,13 +48,7 @@ const LoginModal = () => {
       setIsLoading(false);
       setUseGuestCredentials(false);
     }
-  }, [
-    loginModal,
-    email,
-    password,
-    GUEST_USER_EMAIL,
-    GUEST_USER_PASSWORD,
-  ]);
+  }, [loginModal, email, password, GUEST_USER_EMAIL, GUEST_USER_PASSWORD]);
 
   useEffect(() => {
     if (useGuestCredentials) {
@@ -85,9 +82,9 @@ const LoginModal = () => {
         disabled={isLoading}
         secondary
         onClick={() => {
+          setUseGuestCredentials(true);
           setEmail(GUEST_USER_EMAIL);
           setPassword(GUEST_USER_PASSWORD);
-          setUseGuestCredentials(true);
         }}
       />
       <p className="mt-4">
