@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { toast } from "react-hot-toast";
 
 interface ImageUploadProps {
   onChange: (base64: string) => void;
@@ -27,6 +28,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   const handleDrop = useCallback(
     (files: any) => {
       const file = files[0];
+      console.log("file", file);
+
+      if (file.size >= 5242880) {
+        return toast.error("File should be less that 5MB");
+      }
+
       const reader = new FileReader();
 
       reader.onload = (event: any) => {

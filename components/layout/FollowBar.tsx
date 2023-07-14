@@ -1,10 +1,18 @@
 import useUsers from "@/hooks/useUsers";
 import React from "react";
 import Avatar from "../Avatar";
+import { ClipLoader } from "react-spinners";
 
 const FollowBar = () => {
-  const { data: users = [] } = useUsers();
+  const { data: users = [], isLoading } = useUsers();
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[18rem]">
+        <ClipLoader size={36} color="lightblue" />
+      </div>
+    );
+  }
   if (users.length === 0) return null;
 
   return (

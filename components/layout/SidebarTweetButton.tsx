@@ -1,17 +1,28 @@
 import useCurrentUser from "@/hooks/useCurrentUser";
+import useGlobalState from "@/hooks/useGlobalState";
 import useLoginModal from "@/hooks/useLoginModal";
 import { useRouter } from "next/router";
 import React, { useCallback } from "react";
 import { FaFeather } from "react-icons/fa";
 
-const SidebarTweetButton = () => {
+interface SidebarTweetButtonProps {
+  auth?: boolean;
+}
+
+const SidebarTweetButton: React.FC<SidebarTweetButtonProps> = ({ auth }) => {
   const { data: currentUser } = useCurrentUser();
   const loginModal = useLoginModal();
+  const globalState = useGlobalState();
   const router = useRouter();
 
   const onClick = useCallback(() => {
-    !currentUser && loginModal.onOpen();
-  }, [loginModal]);
+    if (auth && !currentUser) {
+      loginModal.onOpen();
+    } else {
+      router.push("/");
+      globalState.onFocus();
+    }
+  }, [router, loginModal, currentUser, globalState]);
 
   return (
     <div onClick={onClick}>

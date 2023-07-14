@@ -25,6 +25,9 @@ export const authOptions: AuthOptions = {
           throw new Error("Email and password required");
         }
 
+        console.log("email", credentials?.email);
+        console.log("password", credentials.password);
+
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email,
@@ -47,15 +50,18 @@ export const authOptions: AuthOptions = {
         return user;
       },
     }),
-    ],
-    debug: process.env.NODE_ENV === 'development',
-    session: {
-        strategy: 'jwt'
-    },
-    jwt: {
-        secret: process.env.NEXTAUTH_JWT_SECRET,
-    },
-    secret: process.env.NEXTAUTH_SECRET
+  ],
+  pages: {
+    signIn: "/auth",
+  },
+  debug: process.env.NODE_ENV === "development",
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {
+    secret: process.env.NEXTAUTH_JWT_SECRET,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);

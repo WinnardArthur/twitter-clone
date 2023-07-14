@@ -53,7 +53,7 @@ const Sidebar = () => {
               label="Logout"
             />
           )}
-          <SidebarTweetButton />
+          <SidebarTweetButton auth={true} />
         </div>
       </div>
     </div>
