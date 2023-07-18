@@ -16,17 +16,17 @@
 
 ![Notifications](./demo/notification.png)
 
-## User Details
+## User Details (Other User's Profile)
 
-![User Details(Other User's Profile)](./demo/user-details.png)
+![User Details](./demo/user-details.png)
 
-## Profile
+## Profile (Current User)
 
-![Profile(Current User)](./demo/profile.png)
+![Profile](./demo/profile.png)
 
 ## Profile update
 
-![profile Update](./demo/profile.png)
+![profile Update](./demo/update.png)
 
 ## Available scripts
 
