@@ -26,7 +26,7 @@
 
 ## Profile update
 
-![profile Update](./demo/profile.png)
+![profile Update](./demo/update.png)
 
 ## Available scripts
 
@@ -47,4 +47,4 @@ You may also see any lint warnings in the console.
 
 ## Deployment
 
-You can find a demo of twitter-clone at (twitter-clone)(https://twitter-clone-alpha-plum.vercel.app/)
+You can find a demo of twitter-clone at [twitter-clone](https://twitter-clone-alpha-plum.vercel.app/)
