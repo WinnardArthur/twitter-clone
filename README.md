@@ -1,4 +1,17 @@
-# To Begin
+# Full stack Twitter Clone
+
+## Key Features
+- Authentication.
+- Create & Update profile with drag and drop.
+- Post a tweet.
+- Like/Unlike a tweet.
+- Comment on tweets.
+- Reply to a comment.
+- Follow/Unfollow a user.
+- Notifications.
+- Number of people following.
+- Number of followers
+- Responsiveness.
 
 ## Auth
 
